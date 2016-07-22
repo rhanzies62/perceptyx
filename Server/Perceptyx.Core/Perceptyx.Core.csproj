@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,7 +49,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201607220444498_initialcreate.cs" />
+    <Compile Include="Migrations\201607220444498_initialcreate.Designer.cs">
+      <DependentUpon>201607220444498_initialcreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607220455537_newtableupdate.cs" />
+    <Compile Include="Migrations\201607220455537_newtableupdate.Designer.cs">
+      <DependentUpon>201607220455537_newtableupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Enum.cs" />
+    <Compile Include="Model\IAudit.cs" />
+    <Compile Include="Model\PerceptyxContext.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\QuestionChoice.cs" />
+    <Compile Include="Model\Survey.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserSurveyAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201607220444498_initialcreate.resx">
+      <DependentUpon>201607220444498_initialcreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607220455537_newtableupdate.resx">
+      <DependentUpon>201607220455537_newtableupdate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
