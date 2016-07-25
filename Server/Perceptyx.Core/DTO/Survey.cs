@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Perceptyx.Core.Model
+namespace Perceptyx.Core.DTO
 {
-    public class Survey : IAudit
+    public class Survey
     {
         public Survey()
         {
 
         }
 
-        public Survey(DTO.Survey model)
+
+        public Survey(Model.Survey entity)
         {
-            this.Name = model.Name;
-            this.CreatedBy = model.CreatedBy;
-            this.CreatedDate = DateTime.UtcNow;
+            this.Id = entity.Id;
+            this.Name = entity.Name;
+            this.CreatedBy = entity.CreatedBy;
+            this.CreatedDate = entity.CreatedDate;
+            this.UpdatedDate = entity.UpdatedDate;
+            this.UpdatedOn = entity.UpdatedOn;
         }
 
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
         public string Name { get; set; }
 
-        [Required]
         public string CreatedBy
         {
             get
@@ -41,7 +41,6 @@ namespace Perceptyx.Core.Model
             }
         }
 
-        [Required]
         public DateTime CreatedDate
         {
             get

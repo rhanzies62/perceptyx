@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Survey.cs" />
+    <Compile Include="Interface\ISurveyRepository.cs" />
     <Compile Include="Migrations\201607220444498_initialcreate.cs" />
     <Compile Include="Migrations\201607220444498_initialcreate.Designer.cs">
       <DependentUpon>201607220444498_initialcreate.cs</DependentUpon>
@@ -69,7 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interface\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
