@@ -10,6 +10,20 @@ namespace Perceptyx.Core.Model
 {
     public class QuestionChoice : IAudit
     {
+        public QuestionChoice()
+        {
+
+        }
+
+        public QuestionChoice(DTO.QuestionChoice model)
+        {
+            this.QuestionId = model.QuestionId;
+            this.Ordinal = model.Ordinal;
+            this.Value = model.Value;
+            this.CreatedBy = model.CreatedBy;
+            this.CreatedDate = DateTime.UtcNow;
+        }
+
         public int Id { get; set; }
 
         [Required]

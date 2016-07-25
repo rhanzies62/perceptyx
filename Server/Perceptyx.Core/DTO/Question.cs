@@ -1,43 +1,39 @@
-﻿using System;
+﻿using Perceptyx.Core.Model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Perceptyx.Core.Model
+namespace Perceptyx.Core.DTO
 {
-    public class Question : IAudit
+    public class Question
     {
         public Question()
         {
 
         }
 
-        public Question(DTO.Question model)
+        public Question(Model.Question entity)
         {
-            this.Poll = model.Poll;
-            this.Type = model.Type;
-            this.CreatedBy = model.CreatedBy;
-            this.CreatedDate = DateTime.UtcNow;
-            this.SurveyId = model.SurveyId;
+            this.Id = entity.Id;
+            this.SurveyId = entity.SurveyId;
+            this.Poll = entity.Poll;
+            this.Type = entity.Type;
+            this.CreatedBy = entity.CreatedBy;
+            this.CreatedDate = entity.CreatedDate;
+            this.UpdatedDate = entity.UpdatedDate;
+            this.UpdatedOn = entity.UpdatedOn;
         }
 
         public int Id { get; set; }
 
-        [Required]
-        [ForeignKey("Survey")]
         public int SurveyId { get; set; }
 
-        [Required]
-        [MaxLength(100)]
         public string Poll { get; set; }
 
-        [Required]
         public QuestionType Type { get; set; }
 
-        [Required]
         public string CreatedBy
         {
             get
@@ -51,7 +47,6 @@ namespace Perceptyx.Core.Model
             }
         }
 
-        [Required]
         public DateTime CreatedDate
         {
             get
@@ -91,7 +86,6 @@ namespace Perceptyx.Core.Model
             }
         }
 
-        public Survey Survey { get; set; }
-        public List<QuestionChoice> Choices { get; set; }
+        public List<DTO.QuestionChoice> Choices { get; set; }
     }
 }
