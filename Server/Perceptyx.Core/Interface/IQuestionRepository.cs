@@ -10,7 +10,8 @@ namespace Perceptyx.Core.Interface
     {
         int AddQuestion(DTO.Question model);
         int UpdateQuestion(DTO.Question model);
-        bool AddQuestionChoices(List<DTO.QuestionChoice> choices);
+        bool AddQuestionChoices(List<DTO.QuestionChoice> choices, int questionId);
+        bool AddQuestionChoice(DTO.QuestionChoice choice);
         bool UpdateQuestionChoices(List<DTO.QuestionChoice> choices);
         bool ClearQuestionChoices(int questionId);
         bool DeleteQuestion(int questionId);

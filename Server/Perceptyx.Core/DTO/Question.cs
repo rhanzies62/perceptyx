@@ -30,7 +30,11 @@ namespace Perceptyx.Core.DTO
 
         public int SurveyId { get; set; }
 
-        public string Poll { get; set; }
+        string poll;
+        public string Poll {
+            get { return poll.Trim().ToUpper(); }
+            set { poll = value; }
+        }
 
         public QuestionType Type { get; set; }
 
