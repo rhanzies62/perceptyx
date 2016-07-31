@@ -41,11 +41,6 @@ namespace Perceptyx.Core.Repository
             return questionEntity.Id;
         }
 
-        private IQueryable<Model.Question> GetQuestion(string poll)
-        {
-            return perceptyxContext.Questions.Where(i => i.Poll.Equals(poll));
-        }
-
         public bool AddQuestionChoices(List<DTO.QuestionChoice> choices, int questionId)
         {
             using(System.Transactions.TransactionScope tx = new System.Transactions.TransactionScope())
@@ -62,27 +57,52 @@ namespace Perceptyx.Core.Repository
 
         public bool ClearQuestionChoices(int questionId)
         {
-            throw new NotImplementedException();
+            var questionChoices = perceptyxContext.QuestionChoices.Where(i => i.QuestionId.Equals(questionId)).ToList();
+            questionChoices.Clear();
+            perceptyxContext.SaveChanges();
+            return true;
         }
 
         public bool DeleteQuestion(int questionId)
         {
-            throw new NotImplementedException();
+            var question = perceptyxContext.Questions.Where(i => i.Id.Equals(questionId)).FirstOrDefault();
+            if(question != null)
+            {
+                question.Choices.Clear();
+                perceptyxContext.Questions.Remove(question);
+                perceptyxContext.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public List<DTO.Question> Retrieve(int surveyId)
         {
-            throw new NotImplementedException();
+            var questions = perceptyxContext.Questions.Where(i => i.SurveyId.Equals(surveyId)).ToList();
+            return questions.Select(i => new DTO.Question(i)).ToList();
         }
 
         public int UpdateQuestion(DTO.Question model)
         {
-            throw new NotImplementedException();
+            var questionEntity = perceptyxContext.Questions.Where(i => i.Id.Equals(model.Id)).FirstOrDefault();
+            if(questionEntity != null)
+            {
+                questionEntity.Poll = model.Poll;
+                questionEntity.Type = model.Type;
+
+                questionEntity.UpdatedDate = DateTime.UtcNow;
+                questionEntity.UpdatedOn = model.UpdatedOn;
+                perceptyxContext.SaveChanges();
+            }
+            throw new Exception("Question not found");
         }
 
         public bool UpdateQuestionChoices(List<DTO.QuestionChoice> choices)
         {
-            throw new NotImplementedException();
+            choices.ForEach(model => {
+                this.UpdateQuestionChoice(model);
+            });
+            return true;
         }
 
         public bool AddQuestionChoice(DTO.QuestionChoice choice)
@@ -95,6 +115,25 @@ namespace Perceptyx.Core.Repository
             return result;
         }
 
+        public bool UpdateQuestionChoice(DTO.QuestionChoice model)
+        {
+            var choiceEntity = perceptyxContext.QuestionChoices.Where(i => i.Id.Equals(model.Id)).FirstOrDefault();
+            if (choiceEntity != null)
+            {
+                choiceEntity.Value = model.Value;
+                choiceEntity.UpdatedDate = DateTime.UtcNow;
+                choiceEntity.UpdatedOn = model.UpdatedOn;
+                perceptyxContext.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        private IQueryable<Model.Question> GetQuestion(string poll)
+        {
+            return perceptyxContext.Questions.Where(i => i.Poll.Equals(poll));
+        }
+
         private int GenerateOrdinal(int questionId)
         {
             var lastChoice = perceptyxContext.QuestionChoices
@@ -104,5 +143,7 @@ namespace Perceptyx.Core.Repository
 
             return lastChoice == null ? 1 : lastChoice.Ordinal + 1;
         }
+
+
     }
 }

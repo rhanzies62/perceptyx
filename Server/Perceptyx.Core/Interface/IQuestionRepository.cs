@@ -13,6 +13,7 @@ namespace Perceptyx.Core.Interface
         bool AddQuestionChoices(List<DTO.QuestionChoice> choices, int questionId);
         bool AddQuestionChoice(DTO.QuestionChoice choice);
         bool UpdateQuestionChoices(List<DTO.QuestionChoice> choices);
+        bool UpdateQuestionChoice(DTO.QuestionChoice model);
         bool ClearQuestionChoices(int questionId);
         bool DeleteQuestion(int questionId);
         List<DTO.Question> Retrieve(int surveyId);
