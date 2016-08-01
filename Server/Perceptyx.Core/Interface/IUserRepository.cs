@@ -10,5 +10,7 @@ namespace Perceptyx.Core.Interface
     {
         DTO.UserInfo Login(DTO.UserCredential model);
         bool Register(DTO.UserInfo model);
+        bool AnswerSurvey(DTO.UserAnswer answer);
+        bool AnswerSurveyBatch(List<DTO.UserAnswer> answers);
     }
 }

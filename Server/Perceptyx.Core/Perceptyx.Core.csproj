@@ -53,6 +53,7 @@
     <Compile Include="DTO\Question.cs" />
     <Compile Include="DTO\QuestionChoice.cs" />
     <Compile Include="DTO\Survey.cs" />
+    <Compile Include="DTO\UserAnswer.cs" />
     <Compile Include="Extension\QuestionExtension.cs" />
     <Compile Include="Extension\SurveyExtension.cs" />
     <Compile Include="HashBrown.cs" />

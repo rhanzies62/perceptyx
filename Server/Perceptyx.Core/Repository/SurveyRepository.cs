@@ -71,12 +71,13 @@ namespace Perceptyx.Core.Repository
         public DTO.Survey Get(string name)
         {
             var entity = perceptyxContext.Surveys.Where(i => i.Name.Equals(name)).FirstOrDefault();
-            return new DTO.Survey(entity);
+            return entity == null ? null : new DTO.Survey(entity);
         }
 
         public DTO.Survey Get(int id)
         {
             var entity = perceptyxContext.Surveys.Where(i => i.Id.Equals(id)).FirstOrDefault();
+            if(entity == null) {  throw new Exception("survey not found"); }
             return new DTO.Survey(entity);
         }
 

@@ -38,58 +38,14 @@ namespace Perceptyx.Core.Model
         public QuestionType Type { get; set; }
 
         [Required]
-        public string CreatedBy
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string CreatedBy { get; set; }
 
         [Required]
-        public DateTime CreatedDate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public DateTime CreatedDate { get; set; }
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public DateTime? UpdatedDate { get; set; }
 
-        public DateTime? UpdatedDate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string UpdatedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string UpdatedOn { get; set; }
 
         public Survey Survey { get; set; }
         public List<QuestionChoice> Choices { get; set; }

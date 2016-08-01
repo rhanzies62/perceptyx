@@ -13,7 +13,7 @@ namespace Perceptyx.Core.Extension
             bool result = true;
 
             if (string.IsNullOrWhiteSpace(model.Name)) { throw new Exception("Name is required"); }
-            
+            if(string.IsNullOrWhiteSpace(model.CreatedBy)) { throw new Exception("Created by is required"); }
             return result;
         }
     }

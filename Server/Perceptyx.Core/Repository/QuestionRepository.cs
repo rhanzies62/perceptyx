@@ -144,6 +144,16 @@ namespace Perceptyx.Core.Repository
             return lastChoice == null ? 1 : lastChoice.Ordinal + 1;
         }
 
+        public DTO.Question Get(int questionId)
+        {
+            var question = perceptyxContext.Questions.Where(i => i.Id.Equals(questionId)).FirstOrDefault();
+            return new DTO.Question(question);
+        }
 
+        public DTO.QuestionChoice GetChoice(int choiceId)
+        {
+            var choice = perceptyxContext.QuestionChoices.Where(i => i.Id.Equals(choiceId)).FirstOrDefault();
+            return new DTO.QuestionChoice(choice);
+        }
     }
 }

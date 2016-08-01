@@ -33,56 +33,12 @@ namespace Perceptyx.Core.DTO
 
         public string Value { get; set; }
 
-        public string CreatedBy
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public string CreatedBy { get; set; }
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public DateTime CreatedDate { get; set; }
 
-        public DateTime CreatedDate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public DateTime? UpdatedDate { get; set; }
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime? UpdatedDate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string UpdatedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string UpdatedOn { get; set; }
     }
 }

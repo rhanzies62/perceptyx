@@ -17,5 +17,7 @@ namespace Perceptyx.Core.Interface
         bool ClearQuestionChoices(int questionId);
         bool DeleteQuestion(int questionId);
         List<DTO.Question> Retrieve(int surveyId);
+        DTO.Question Get(int questionId);
+        DTO.QuestionChoice GetChoice(int choiceId);
     }
 }
