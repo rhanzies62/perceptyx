@@ -58,8 +58,9 @@ namespace Perceptyx.Core.Repository
             if (entity == null)
                 throw new Exception("Survey is not existing in the DB");
 
-            if (existingEntity.Id != entity.Id)
-                throw new Exception("Name already existi in the DB");
+            if(existingEntity != null)
+                if (existingEntity.Id != entity.Id)
+                    throw new Exception("Name already existi in the DB");
 
             entity.Name = model.Name;
             entity.UpdatedDate = DateTime.UtcNow;

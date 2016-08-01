@@ -15,7 +15,7 @@ namespace Perceptyx.Core.Text
             Name = "Survey 2",
             CreatedBy = "Francis"
         };
-
+        #region Add
         [TestMethod]
         public void AddSurveyValid()
         {
@@ -65,7 +65,52 @@ namespace Perceptyx.Core.Text
                 Assert.AreNotEqual(0, result);
             }
         }
+        #endregion
 
+        #region Edit
+        [TestMethod]
+        public void EditSurveyValid()
+        {
+            using (var tx = new System.Transactions.TransactionScope())
+            {
+                surveyRepository = new SurveyRepository();
+                var survey = surveyRepository.Get(1);
+                survey.Name = "Survey 2";
+                var result = surveyRepository.Edit(survey);
+                Assert.AreEqual(survey.Id, result);
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void EditSurveyInvalidName()
+        {
+            using (var tx = new System.Transactions.TransactionScope())
+            {
+                surveyRepository = new SurveyRepository();
+                var survey = surveyRepository.Get(1);
+                survey.Name = "";
+                var result = surveyRepository.Edit(survey);
+                Assert.AreEqual(survey.Id, result);
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void EditSurveyNotExistingSurvey()
+        {
+            using (var tx = new System.Transactions.TransactionScope())
+            {
+                surveyRepository = new SurveyRepository();
+                var survey = surveyRepository.Get(1);
+                survey.Id = 2;
+                var result = surveyRepository.Edit(survey);
+                Assert.AreEqual(survey.Id, result);
+            }
+        }
+        #endregion
+
+        #region Delete
         [TestMethod]
         public void DeleteSurveyValid()
         {
@@ -92,7 +137,9 @@ namespace Perceptyx.Core.Text
                 Assert.IsFalse(result);
             }
         }
+        #endregion
 
+        #region Retrieves
         [TestMethod]
         public void RetrieveSurveys()
         {
@@ -133,5 +180,6 @@ namespace Perceptyx.Core.Text
             var result = surveyRepository.Get("Survey 2");
             Assert.IsNull(result);
         }
+        #endregion
     }
 }
