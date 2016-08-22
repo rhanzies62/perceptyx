@@ -165,6 +165,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="AuthorizeAttribute.cs" />
+    <Compile Include="Claims\Bouncer.cs" />
+    <Compile Include="Claims\IUserPrincipal.cs" />
+    <Compile Include="Claims\UserPrincipal.cs" />
+    <Compile Include="Claims\UserPrincipalSerializeModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -222,7 +228,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Cryptography\Core.Cryptography.csproj">
+      <Project>{ef064b58-45f7-4774-bb84-a7dbb30754ff}</Project>
+      <Name>Core.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Perceptyx.Core\Perceptyx.Core.csproj">
+      <Project>{81342396-7fc4-4dd1-a1d9-8cc76e317485}</Project>
+      <Name>Perceptyx.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

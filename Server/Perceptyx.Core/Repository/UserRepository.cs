@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Perceptyx.Core.DTO;
-
+using Core.Cryptography;
 namespace Perceptyx.Core.Repository
 {
     public class UserRepository : IUserRepository
@@ -70,8 +70,7 @@ namespace Perceptyx.Core.Repository
             var userinfo = perceptyxContext.Users.Where(i => i.EmailAddress.Equals(model.EmailAddress)).FirstOrDefault();
             if (userinfo != null)
             {
-                var hash = new HashBrown();
-                var password = string.Concat(model.Password, userinfo.Salt);
+                string password = Hashbrowns.Hash(model.Password, userinfo.Salt);
                 if (password == userinfo.Password) { return new UserInfo(userinfo); }
                 else { throw new Exception("Email/Password didn't match"); }
             }
@@ -87,7 +86,7 @@ namespace Perceptyx.Core.Repository
             userEntity.EmailAddress = model.EmailAddress;
             userEntity.IsAdmin = model.IsAdmin;
 
-            var password = string.Concat(model.Password, userEntity.Salt);
+            var password = Hashbrowns.Hash(model.Password, userEntity.Salt);
 
             userEntity.CreatedDate = DateTime.UtcNow;
             userEntity.CreatedBy = string.Concat(model.FirstName, model.LastName);
