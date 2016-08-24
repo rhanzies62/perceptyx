@@ -11,28 +11,26 @@ using Perceptyx.API.Claims;
 
 namespace Perceptyx.API.Controllers
 {
-    public class AccountController : ApiController
+    public class SignUpController : ApiController
     {
         private readonly IUserRepository userRepository;
-
-        public AccountController()
+        public SignUpController()
         {
             userRepository = new UserRepository();
         }
 
         [HttpPost]
-        public HttpResponseMessage Post(DTO.UserCredential info)
+        public HttpResponseMessage Post(DTO.UserInfo info)
         {
             try
             {
-                var result = userRepository.Login(info);
-                string data = Bouncer.Login(new UserPrincipalSerializeModel(result));
-                return Request.CreateResponse<string>(data);
-            }catch(Exception e)
+                var result = userRepository.Register(info);
+                return Request.CreateResponse<bool>(result);
+            }
+            catch (Exception e)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
         }
-
     }
 }

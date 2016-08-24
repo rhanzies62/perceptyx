@@ -85,8 +85,7 @@ namespace Perceptyx.Core.Repository
             userEntity.Salt = Guid.NewGuid().ToString("N");
             userEntity.EmailAddress = model.EmailAddress;
             userEntity.IsAdmin = model.IsAdmin;
-
-            var password = Hashbrowns.Hash(model.Password, userEntity.Salt);
+            userEntity.Password = Hashbrowns.Hash(model.Password, userEntity.Salt);
 
             userEntity.CreatedDate = DateTime.UtcNow;
             userEntity.CreatedBy = string.Concat(model.FirstName, model.LastName);

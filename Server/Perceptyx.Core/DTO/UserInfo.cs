@@ -5,7 +5,7 @@ namespace Perceptyx.Core.DTO
 {
     public class UserInfo
     {
-
+        public UserInfo() { }
         public UserInfo(User userinfo)
         {
             this.Id = userinfo.Id;

@@ -3,7 +3,7 @@ namespace Perceptyx.Core.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialcreate : DbMigration
+    public partial class InitialCreateOnlineDB : DbMigration
     {
         public override void Up()
         {
@@ -55,6 +55,24 @@ namespace Perceptyx.Core.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(nullable: false, maxLength: 50),
+                        LastName = c.String(nullable: false, maxLength: 50),
+                        EmailAddress = c.String(nullable: false, maxLength: 50),
+                        Password = c.String(nullable: false),
+                        Salt = c.String(nullable: false),
+                        IsAdmin = c.Boolean(nullable: false),
+                        CreatedDate = c.DateTime(nullable: false),
+                        UpdatedDate = c.DateTime(),
+                        CreatedBy = c.String(nullable: false),
+                        UpdatedOn = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.UserSurveyAnswers",
                 c => new
                     {
@@ -71,19 +89,24 @@ namespace Perceptyx.Core.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
                 .Index(t => t.QuestionId);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.UserSurveyAnswers", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserSurveyAnswers", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.QuestionChoices", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Questions", "SurveyId", "dbo.Surveys");
             DropIndex("dbo.UserSurveyAnswers", new[] { "QuestionId" });
+            DropIndex("dbo.UserSurveyAnswers", new[] { "UserId" });
             DropIndex("dbo.Questions", new[] { "SurveyId" });
             DropIndex("dbo.QuestionChoices", new[] { "QuestionId" });
             DropTable("dbo.UserSurveyAnswers");
+            DropTable("dbo.Users");
             DropTable("dbo.Surveys");
             DropTable("dbo.Questions");
             DropTable("dbo.QuestionChoices");

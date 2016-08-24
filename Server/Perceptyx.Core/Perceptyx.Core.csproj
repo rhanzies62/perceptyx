@@ -58,13 +58,9 @@
     <Compile Include="Extension\SurveyExtension.cs" />
     <Compile Include="Interface\IQuestionRepository.cs" />
     <Compile Include="Interface\ISurveyRepository.cs" />
-    <Compile Include="Migrations\201607220444498_initialcreate.cs" />
-    <Compile Include="Migrations\201607220444498_initialcreate.Designer.cs">
-      <DependentUpon>201607220444498_initialcreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607220455537_newtableupdate.cs" />
-    <Compile Include="Migrations\201607220455537_newtableupdate.Designer.cs">
-      <DependentUpon>201607220455537_newtableupdate.cs</DependentUpon>
+    <Compile Include="Migrations\201608240138117_InitialCreateOnlineDB.cs" />
+    <Compile Include="Migrations\201608240138117_InitialCreateOnlineDB.Designer.cs">
+      <DependentUpon>201608240138117_InitialCreateOnlineDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Enum.cs" />
@@ -94,11 +90,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607220444498_initialcreate.resx">
-      <DependentUpon>201607220444498_initialcreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607220455537_newtableupdate.resx">
-      <DependentUpon>201607220455537_newtableupdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608240138117_InitialCreateOnlineDB.resx">
+      <DependentUpon>201608240138117_InitialCreateOnlineDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

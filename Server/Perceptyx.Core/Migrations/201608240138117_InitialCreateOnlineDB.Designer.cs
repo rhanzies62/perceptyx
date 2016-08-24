@@ -7,13 +7,13 @@ namespace Perceptyx.Core.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initialcreate : IMigrationMetadata
+    public sealed partial class InitialCreateOnlineDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialcreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreateOnlineDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607220444498_initialcreate"; }
+            get { return "201608240138117_InitialCreateOnlineDB"; }
         }
         
         string IMigrationMetadata.Source

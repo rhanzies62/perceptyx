@@ -15,7 +15,6 @@ namespace Perceptyx.API.Claims
         }
 
 
-
         public string FirstName { get; set; }
 
         public int id { get; set; }
