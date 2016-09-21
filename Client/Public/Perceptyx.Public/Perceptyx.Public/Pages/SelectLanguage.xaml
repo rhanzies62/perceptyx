@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.SelectLaguage"
+             BackgroundColor="#f2f2f2">
+
+  <StackLayout VerticalOptions="FillAndExpand">
+
+    <Label VerticalOptions="CenterAndExpand"/>
+    <ListView x:Name="languageList" SeparatorVisibility="None" RowHeight="60" Margin="25" VerticalOptions="Center">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+
+          <ViewCell>
+            <Grid Padding="5">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+
+              <Image Source="icon.png"
+                     Aspect="Fill"
+                     Grid.Row="0" Grid.Column="0"
+                     Grid.RowSpan="2"/>
+              
+              <Label Text="{Binding Language}"
+                     TextColor="#333333"
+                     Grid.Row="0" Grid.Column="1"
+                     VerticalOptions="Start"/>
+
+              <Label Text="{Binding CountryName}"
+                     Grid.Row="1" Grid.Column="1"
+                     VerticalOptions="Start"/>
+            </Grid>
+          </ViewCell>
+
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <Button Text="Next"
+            TextColor="#333333"
+            HorizontalOptions="End"
+            FontAttributes="Bold"
+            BackgroundColor="Transparent"
+            VerticalOptions="EndAndExpand"
+            Margin="10,0,10,10"
+            BorderWidth=".5"
+            BorderColor="#333333"
+            HeightRequest="40"
+            Clicked="OnNextButtonClicked"/>
+
+  </StackLayout>
+</ContentPage>

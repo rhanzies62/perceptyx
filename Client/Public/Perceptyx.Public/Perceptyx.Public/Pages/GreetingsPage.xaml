@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.GreetingsPage" BackgroundColor="#00b0f0">
+
+
+  <Grid x:Name="greeting" VerticalOptions="FillAndExpand">
+    <StackLayout VerticalOptions="Center"
+                 Grid.Row="0" Grid.Column="0"> 
+      <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <Label Text="Hello"
+               FontSize="35"
+               FontAttributes="Bold"
+               TextColor="White"/>
+        <Label Text="There!"
+               FontSize="35"
+               TextColor="White"/>
+      </StackLayout>
+    </StackLayout>
+  </Grid>
+
+</ContentPage>

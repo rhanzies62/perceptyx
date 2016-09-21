@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.Introduction2"
+             BackgroundColor="#4672c4">
+
+
+  <StackLayout VerticalOptions="FillAndExpand" Margin="20" >
+    <Label VerticalOptions="CenterAndExpand"/>
+    <Label TextColor="White" HorizontalTextAlignment="Center" FontSize="18">
+      <Label.FormattedText>
+        <FormattedString>
+          <Span Text="With your help we will be able to identify ways to make "/>
+          <Span Text="Perceptyx "
+                FontAttributes="Bold" FontSize="20"/>
+          <Span Text="a more productive, better place to work, while increasing the company's business performance."/>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+
+    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" VerticalOptions="EndAndExpand">
+      <Button Text="Return"
+              HorizontalOptions="StartAndExpand"
+              HeightRequest="40"
+              BackgroundColor="Transparent"
+              BorderColor="White"
+              BorderWidth="1"
+              TextColor="White"
+              FontSize="15"
+              Clicked="OnReturnButtonClicked"/>
+      <Button Text="Next"
+              HorizontalOptions="EndAndExpand"
+              HeightRequest="40"
+              BackgroundColor="Transparent"
+              BorderColor="White"
+              BorderWidth="1"
+              TextColor="White"
+              FontSize="15"
+              Clicked="OnNextButtonClicked"/>
+    </StackLayout>
+
+  </StackLayout>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.Introduction1"
+             BackgroundColor="#4672c4">
+
+  <StackLayout VerticalOptions="FillAndExpand" Margin="20">
+    <Label VerticalOptions="CenterAndExpand"/>
+    <Label TextColor="White" HorizontalTextAlignment="Center" FontSize="18">
+      <Label.FormattedText>
+        <FormattedString>
+          <Span Text="Thanks in advance for your candid and constructive feedback. All information will be treated"/>
+          <Span Text=" confidentially "
+                FontAttributes="Bold" FontSize="18"/>
+          <Span Text="and survey data will be"/>
+          <Span Text=" segmented for reporting only if there are 5 or more employees"
+                FontAttributes="Bold" FontSize="18"/>
+          <Span Text=" responding in a group."/>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+
+
+    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" VerticalOptions="EndAndExpand">
+      <Button Text="Return"
+              HorizontalOptions="StartAndExpand"
+              HeightRequest="40"
+              BackgroundColor="Transparent"
+              BorderColor="White"
+              BorderWidth="1"
+              TextColor="White"
+              FontSize="15"
+              Clicked="OnReturnButtonClicked"/>
+      <Button Text="Next"
+              HorizontalOptions="EndAndExpand"
+              HeightRequest="40"
+              BackgroundColor="Transparent"
+              BorderColor="White"
+              BorderWidth="1"
+              TextColor="White"
+              FontSize="15"
+              Clicked="OnNextButtonClicked"/>
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.Greetings2"
+             BackgroundColor="#ec407a">
+    <StackLayout VerticalOptions="FillAndExpand">
+      <Label Text=" "
+             VerticalOptions="CenterAndExpand"/>
+      <Label Text="Welcome to"
+             FontSize="30"
+             TextColor="White"
+             HorizontalTextAlignment="Center"
+             VerticalTextAlignment="Center"/>
+      <Label Text="Perceptyx"
+             FontAttributes="Bold"
+             FontSize="30"
+             TextColor="White"
+             HorizontalTextAlignment="Center"
+             VerticalTextAlignment="Center"/>
+      <Label Text="Employee Survey!"
+             FontSize="30"
+             TextColor="White"
+             HorizontalTextAlignment="Center"
+             VerticalTextAlignment="Center"/>
+
+      <StackLayout Orientation="Horizontal"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="EndAndExpand"
+                   Margin="15,0,15,15">
+        <Button Text="Return"
+                HorizontalOptions="StartAndExpand"
+                HeightRequest="35"
+                TextColor="White"
+                FontSize="15"
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="1"
+                Clicked="OnReturnButtonClicked"/>
+
+        <Button Text="Next"
+                HorizontalOptions="EndAndExpand"
+                HeightRequest="35"
+                TextColor="White"
+                FontSize="15"
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="1"
+                Clicked="OnNextButtonClicked"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage>

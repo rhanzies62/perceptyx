@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.Instruction"
+             BackgroundColor="#00b0f0">
+
+  <StackLayout VerticalOptions="Center" Margin="20">
+
+    <Label Text="Please evaluate each of the following statements about working for Sample. Each survey statement has two parts. The first part asks you to evaluate your level of agreement with the statement while the second part asks you to state how important this item is."
+           TextColor="White" HorizontalTextAlignment="Center" FontSize="18"/>
+    
+  </StackLayout>
+</ContentPage>

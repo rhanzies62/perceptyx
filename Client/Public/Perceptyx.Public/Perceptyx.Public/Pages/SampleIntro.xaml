@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perceptyx.Public.Pages.SampleIntro"
+             BackgroundColor="#f2f2f2" >
+  <ScrollView>
+    <StackLayout VerticalOptions="Center" Padding="10,10,10,10">
+
+      <Label Font="20" HorizontalTextAlignment="Center" TextColor="#333333">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Welcome to "/>
+            <Span Text="Perceptyx"
+                  Font="20"
+                  FontAttributes="Bold"/>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <Label Text="Employee Survey!"
+             Font="Large"
+             HorizontalTextAlignment="Center" TextColor="#333333"/>
+
+      <Label Text="Thanks in advance for your candid and constructive feedback. All information will be treated confidentially and survey data will be segmented for reporting only if there are 5 or more employees responding in a group."
+             FontSize="16" TextColor="#333333" Margin="0,20,0,0"/>
+
+      <Label Text="With your help we will be able to identify ways to make Sample a more productive, better place to work, while increasing the company's business performance."
+             FontSize="16" TextColor="#333333" Margin="0,15,0,0"/>
+
+      <Label Text="Definitions: Please read the following definitions. They will be helpful in completing the survey."
+             FontAttributes="Bold"
+             FontSize="16" TextColor="#333333" Margin="0,25,0,0"/>
+
+      <Label FontSize="16" HorizontalTextAlignment="Start" TextColor="#333333" Margin="0,15,0,0">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="My Manager:"
+                  FontAttributes="Bold"/>
+            <Span Text=" This refers to the person that is your direct supervisor and completes your annual performance review."/>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <Label FontSize="16" HorizontalTextAlignment="Start" TextColor="#333333" Margin="0,15,0,0">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="My Department:"
+                  FontAttributes="Bold"
+                  FontSize="16"/>
+            <Span Text=" This refers to your specific team within the organization."/>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <Label FontSize="16" HorizontalTextAlignment="Start" TextColor="#333333" Margin="0,15,0,0">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Corporate Management:"
+                  FontAttributes="Bold"
+                  FontSize="16"/>
+            <Span Text=" This refers to the most senior leaders (i.e. Policy Committee members)."/>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,30,0,10" VerticalOptions="EndAndExpand">
+        <Button Text="Return"
+                HorizontalOptions="StartAndExpand"
+                HeightRequest="40"
+                BackgroundColor="Transparent"
+                BorderColor="#333333"
+                BorderWidth="1"
+                TextColor="#333333"
+                FontSize="15"
+                Clicked="OnReturnButtonClicked"/>
+        <Button Text="Begin"
+                HorizontalOptions="EndAndExpand"
+                HeightRequest="40"
+                BackgroundColor="Transparent"
+                BorderColor="#333333"
+                BorderWidth="1"
+                TextColor="#333333"
+                FontSize="15"
+                Clicked="OnBeginButtonClicked"/>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
